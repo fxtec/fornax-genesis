@@ -27,6 +27,5 @@ COPY etoutput.sh /bin/etoutput
 COPY configtx.yaml /etc/hyperledger/fabric/
 COPY crypto-config.yaml /etc/hyperledger/fabric/
 COPY watchdog.sh /bin/watchdog
-COPY genesis.sh /bin/genesis
 WORKDIR /etc/hyperledger/fabric/
-ENTRYPOINT ["/bin/genesis"]
+ENTRYPOINT ["/bin/watchdog"]
