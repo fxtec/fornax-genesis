@@ -12,7 +12,7 @@ function noop() {
 while true;
 do
     cd /etc/fornax
-    et fornax-genesis.sh
+    et fornax-genesis.sh 2>&1
     if [[ "$?" == "0" ]]
     then
         etoutput fornax-genesis.sh

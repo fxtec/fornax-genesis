@@ -26,6 +26,12 @@ COPY etfile.sh /bin/etfile
 COPY etoutput.sh /bin/etoutput
 COPY configtx.yaml /etc/hyperledger/fabric/
 COPY crypto-config.yaml /etc/hyperledger/fabric/
-COPY watchdog.sh /bin/watchdog
+RUN chmod +x /bin/et
+RUN chmod +x /bin/etset
+RUN chmod +x /bin/etdel
+RUN chmod +x /bin/etfile
+RUN chmod +x /bin/etoutput
+COPY fornax-watchdog.sh /bin/fornax-watchdog
+RUN chmod +x /bin/fornax-watchdog
 WORKDIR /etc/hyperledger/fabric/
-ENTRYPOINT ["/bin/watchdog"]
+ENTRYPOINT ["/bin/fornax-watchdog"]
