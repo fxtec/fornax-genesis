@@ -10,7 +10,7 @@ RUN apt-get update && \
     $(lsb_release -cs) \
     stable" && \
     apt-get update && \
-    apt-get install -y docker-ce-cli && \
+    apt-get install -y docker-ce-cli iputils-ping && \
     apt-get purge -y apt-transport-https && \
     rm -rf /var/cache/apt
 
@@ -33,5 +33,4 @@ RUN chmod +x /bin/etfile
 RUN chmod +x /bin/etoutput
 COPY fornax-watchdog.sh /bin/fornax-watchdog
 RUN chmod +x /bin/fornax-watchdog
-WORKDIR /etc/hyperledger/fabric/
 ENTRYPOINT ["/bin/fornax-watchdog"]

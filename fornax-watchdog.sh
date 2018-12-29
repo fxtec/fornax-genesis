@@ -11,15 +11,16 @@ function noop() {
 
 while true;
 do
-    cd /etc/fornax
-    et fornax-genesis.sh 2>&1
+    et fornax-genesis.sh > /dev/null
     if [[ "$?" == "0" ]]
     then
-        etoutput fornax-genesis.sh
+        cd /etc/fornax
+        etoutput fornax-genesis.sh > /dev/null
         chmod 700 fornax-genesis.sh
-        cd /etc/hyperledger/fabric/
-        /etc/fornax/fornax-genesis.sh
+    else
+        log ERROR docker service etcd notfound
     fi
-    ## FIXME colocar noop pra  cima
+    cd /etc/hyperledger/fabric/
+    /etc/fornax/fornax-genesis.sh
     noop
 done
