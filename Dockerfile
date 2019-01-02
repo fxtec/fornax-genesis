@@ -18,6 +18,8 @@ RUN apt-get update && \
 LABEL maintainer="davimesquita@gmail.com"
 ENV ETCD_ENDPOINT http://etcd:2379
 ENV DEF_NETWORK fornax-genesis
+ENV FORNAX_USER admin
+ENV FORNAX_PASS adminpw123
 
 COPY et.sh /bin/et
 COPY etset.sh /bin/etset
